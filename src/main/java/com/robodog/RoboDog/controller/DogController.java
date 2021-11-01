@@ -30,8 +30,8 @@ public class DogController {
     }
 
     @PutMapping("/dogs/{name}")
-    public void updateDog(@PathVariable String name) {
-        dogStorage.updateDog(name, 100, Breed.WIENER );
+    public void updateDog(@RequestBody Dog dog, @PathVariable String name) {
+        dogStorage.updateDog(name, dog.age, dog.breed );
     }
 
 }
