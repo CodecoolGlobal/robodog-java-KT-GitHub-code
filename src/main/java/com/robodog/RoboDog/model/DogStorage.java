@@ -13,9 +13,10 @@ public class DogStorage {
         dogs.add(dog);
     }
 
-    public void addRandomDog() {
+    public Dog addRandomDog() {
         Dog randomDog = DogCreator.createRandomDog();
         dogs.add(randomDog);
+        return randomDog;
     }
 
     public List<Dog> getDogs() {
