@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class DogCreator {
 
-    public Dog createRandomDog(){
+    public static Dog createRandomDog(){
 
         //randomize name
         byte[] array = new byte[7]; // length is bounded by 7
