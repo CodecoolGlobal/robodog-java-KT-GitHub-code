@@ -1,10 +1,12 @@
 package com.robodog.RoboDog.model;
 
 import com.robodog.RoboDog.service.DogCreator;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class DogStorage {
 
     public List<Dog> dogs = new ArrayList<>();

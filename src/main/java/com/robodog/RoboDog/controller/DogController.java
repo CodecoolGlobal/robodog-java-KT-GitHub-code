@@ -11,8 +11,8 @@ import java.util.List;
 @RestController
 public class DogController {
 
-    //@Autowired
-    public DogStorage dogStorage = new DogStorage();
+    @Autowired
+    public DogStorage dogStorage;
 
     @GetMapping("dogs")
     public List<Dog> getDogs(){
