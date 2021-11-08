@@ -12,9 +12,9 @@ public class DogCreator {
     public static Dog createRandomDog(){
 
         //randomize name
-        byte[] array = new byte[7]; // length is bounded by 7
-        new Random().nextBytes(array);
-        String randomName = new String(array, StandardCharsets.UTF_8);
+        byte[] nameLength = new byte[7];
+        new Random().nextBytes(nameLength);
+        String randomName = new String(nameLength, StandardCharsets.ISO_8859_1);
 
         //randomize age
         Random random = new Random();
