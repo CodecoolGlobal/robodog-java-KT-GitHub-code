@@ -5,20 +5,21 @@ import com.robodog.RoboDog.model.Dog;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class DogCreator {
 
+    private static List<String> dogNames = Arrays.asList("Abe", "Ace", "Bark", "Blue", "Chase", "Chewy", "Dexter", "Diesel", "Eddie", "Evan", "Felix", "Frankie");
+
     public static Dog createRandomDog(){
 
         //randomize name
-        byte[] nameLength = new byte[7];
-        new Random().nextBytes(nameLength);
-        String randomName = new String(nameLength, StandardCharsets.ISO_8859_1);
+        String randomName = dogNames.get(new Random().nextInt(dogNames.size()));
 
         //randomize age
-        Random random = new Random();
-        int randomAge = random.nextInt(21 - 1) + 1;
+        int randomAge = new Random().nextInt(20) + 1;
 
         //randomize breed
         Breed randomBreed = Breed.values()[new Random().nextInt(Breed.values().length)];
