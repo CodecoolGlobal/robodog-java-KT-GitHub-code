@@ -1,5 +1,6 @@
 package com.robodog.RoboDog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,9 +24,10 @@ public class Dog {
     @Enumerated(EnumType.STRING)
     public Breed breed;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @Singular
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     public Set<Toy> toys;
 
     public Dog(String name, int age, Breed breed) {
@@ -33,4 +35,12 @@ public class Dog {
         this.age = age;
         this.breed = breed;
     }
+
+    public Dog(String name, int age, Breed breed, Set<Toy> toys) {
+        this.name = name;
+        this.age = age;
+        this.breed = breed;
+        this.toys = toys;
+    }
+
 }

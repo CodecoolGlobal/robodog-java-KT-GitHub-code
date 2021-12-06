@@ -2,13 +2,12 @@ package com.robodog.RoboDog.service;
 
 import com.robodog.RoboDog.model.Breed;
 import com.robodog.RoboDog.model.Dog;
+import com.robodog.RoboDog.model.Toy;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class DogCreator {
@@ -26,7 +25,9 @@ public class DogCreator {
         //randomize breed
         Breed randomBreed = Breed.values()[new Random().nextInt(Breed.values().length)];
 
-        return new Dog(randomName,randomAge,randomBreed);
+        Set<Toy> toys = new HashSet<>();
+
+        return new Dog(randomName,randomAge,randomBreed,toys);
     }
 
 }
