@@ -23,4 +23,7 @@ public class Toy {
     @ManyToOne
     public Dog owner;
 
+    public Toy(String name) {
+        this.name = name;
+    }
 }
