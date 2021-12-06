@@ -32,6 +32,7 @@ public class DogController {
 
     @PostMapping("dogs")
     public void addDog(@RequestBody Dog dog){
+        dogRepository.save(dog);
         dogStorage.add(dog);
     }
 
