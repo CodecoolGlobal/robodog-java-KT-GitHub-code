@@ -1,11 +1,9 @@
 package com.robodog.RoboDog.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -24,6 +22,11 @@ public class Dog {
 
     @Enumerated(EnumType.STRING)
     public Breed breed;
+
+    @OneToMany(mappedBy = "owner")
+    @Singular
+    @EqualsAndHashCode.Exclude
+    public Set<Toy> toys;
 
     public Dog(String name, int age, Breed breed) {
         this.name = name;
